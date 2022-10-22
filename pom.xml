@@ -10,6 +10,7 @@
   <modules>
     <module>integration-helloworld</module>
     <module>integration-mybatis</module>
+      <module>integration-mybatis-plus</module>
   </modules>
   <packaging>pom</packaging>
 
