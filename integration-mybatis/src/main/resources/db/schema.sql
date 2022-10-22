@@ -1,13 +1,17 @@
 DROP TABLE IF EXISTS `mybatis_user`;
-CREATE TABLE `mybatis_user` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
-  `name` VARCHAR(32) NOT NULL UNIQUE COMMENT '用户名',
-  `password` VARCHAR(32) NOT NULL COMMENT '加密后的密码',
-  `salt` VARCHAR(32) NOT NULL COMMENT '加密使用的盐',
-  `email` VARCHAR(32) NOT NULL UNIQUE COMMENT '邮箱',
-  `phone_number` VARCHAR(15) NOT NULL UNIQUE COMMENT '手机号码',
-  `status` INT(2) NOT NULL DEFAULT 1 COMMENT '状态，-1：逻辑删除，0：禁用，1：启用',
-  `create_time` DATETIME NOT NULL DEFAULT NOW() COMMENT '创建时间',
-  `last_login_time` DATETIME DEFAULT NULL COMMENT '上次登录时间',
-  `last_update_time` DATETIME NOT NULL DEFAULT NOW() COMMENT '上次更新时间'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Spring Boot Demo Orm 系列示例表';
+CREATE TABLE `mybatis_user`  (
+`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+`name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
+`password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '加密后的密码',
+`salt` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '加密使用的盐',
+`email` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '邮箱',
+`phone_number` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号码',
+`status` int(2) NOT NULL DEFAULT 1 COMMENT '状态，-1：逻辑删除，0：禁用，1：启用',
+`create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+`last_login_time` datetime NULL DEFAULT NULL COMMENT '上次登录时间',
+`last_update_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上次更新时间',
+PRIMARY KEY (`id`) USING BTREE,
+UNIQUE INDEX `name`(`name`) USING BTREE,
+UNIQUE INDEX `email`(`email`) USING BTREE,
+UNIQUE INDEX `phone_number`(`phone_number`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'Mybatis 示例表' ROW_FORMAT = Dynamic;
