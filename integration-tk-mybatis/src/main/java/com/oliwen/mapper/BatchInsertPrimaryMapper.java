@@ -1,8 +1,8 @@
 package com.oliwen.mapper;
 
+import com.oliwen.common.BatchInsertPrimaryProvider;
 import com.oliwen.common.BatchInsertProvider;
 import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Options;
 import tk.mybatis.mapper.annotation.RegisterMapper;
 
 import java.util.List;
@@ -14,10 +14,8 @@ import java.util.List;
  */
 @SuppressWarnings("all")
 @RegisterMapper
-public interface BatchInsertMapper<T> {
+public interface BatchInsertPrimaryMapper<T> {
 
-    @Options(useGeneratedKeys = true)
-    @InsertProvider(type = BatchInsertProvider.class,  method = "dynamicSQL")
-    int batchInsert(List<T> list);
-
+    @InsertProvider(type = BatchInsertPrimaryProvider.class,  method = "dynamicSQL")
+    int batchInsertPrimary(List<T> list);
 }

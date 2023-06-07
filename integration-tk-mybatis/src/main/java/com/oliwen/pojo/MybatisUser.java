@@ -8,6 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -28,6 +31,8 @@ public class MybatisUser implements Serializable {
      * 主键
      */
     @TableId(type=IdType.AUTO)
+    @Id
+    @GeneratedValue(generator = "JDBC",strategy = GenerationType.AUTO)
     private Long id;
 
     /**
