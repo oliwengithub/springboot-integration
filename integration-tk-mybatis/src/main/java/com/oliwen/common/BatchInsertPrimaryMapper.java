@@ -1,4 +1,4 @@
-package com.oliwen.mapper;
+package com.oliwen.common;
 
 import com.oliwen.common.BatchInsertPrimaryProvider;
 import com.oliwen.common.BatchInsertProvider;

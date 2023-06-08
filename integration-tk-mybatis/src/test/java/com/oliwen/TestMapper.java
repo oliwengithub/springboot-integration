@@ -1,5 +1,6 @@
 package com.oliwen;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.oliwen.common.BatchInsertProvider;
 import com.oliwen.mapper.MybatisUserMapper;
 import com.oliwen.mapper.TkMybatisMapper;
@@ -63,6 +64,12 @@ public class TestMapper {
         TkMybatis tkMybatis = TkMybatis.builder().name("sfsdff").build();
         tkMybatisMapper.insert(tkMybatis);
         System.out.println(tkMybatis);
+    }
+    @Test
+    public void test6(){
+        List<TkMybatis> tkMybatis = tkMybatisMapper.selectList(new LambdaQueryWrapper<>());
+        int i = tkMybatisMapper.batchUpdateByPrimarySelective(tkMybatis);
+        System.out.println(i);
     }
 
 

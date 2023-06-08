@@ -1,8 +1,8 @@
 package com.oliwen.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.oliwen.common.BatchInsertMapper;
 import com.oliwen.pojo.MybatisUser;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * 用户表 mapper
