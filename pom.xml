@@ -12,6 +12,7 @@
     <module>integration-mybatis</module>
     <module>integration-mybatis-plus</module>
     <module>integration-tk-mybatis</module>
+      <module>integration-excel-demo</module>
   </modules>
   <packaging>pom</packaging>
 
